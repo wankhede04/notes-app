@@ -12,12 +12,13 @@ import { ngxsConfig } from './store/ngxs.config';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { NoteMetadataComponent } from './note-metadata/note-metadata.component';
+import { NoteBoardComponent } from './note-board/note-board.component';
 
 const routes: Routes = [
   {
     path: 'notes',
     children: [
-      { path: '', component: NoteMetadataComponent }
+      { path: '', component: NoteMetadataComponent },
     ],
     component: HomeComponent
   },
@@ -28,7 +29,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    NoteMetadataComponent
+    NoteMetadataComponent,
+    NoteBoardComponent
   ],
   imports: [
     BrowserModule,

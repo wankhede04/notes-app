@@ -1,0 +1,23 @@
+.board-box {
+  width: 45%;
+  border: 1px solid #EAEAEA;
+}
+
+.date-time {
+  display: block;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: #808080;
+}
+
+.text-content {
+  padding: 10px;
+
+  textarea {
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize: none;
+  }
+}

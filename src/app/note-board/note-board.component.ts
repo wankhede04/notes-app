@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./note-board.component.scss']
 })
 export class NoteBoardComponent implements OnInit {
+  public currentDateTime: Date = new Date();
 
   constructor() { }
 
