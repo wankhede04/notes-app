@@ -1,0 +1,23 @@
+.options-bar {
+  display: flex;
+  width: 50%;
+  background: #C3E3FF;
+
+  button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+  }
+}
+
+.search {
+  margin-left: 34px;
+
+  input {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    padding: 2px 8px;
+  }
+}

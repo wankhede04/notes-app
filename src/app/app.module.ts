@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { NoteMetadataComponent } from './note-metadata/note-metadata.component';
 import { NoteBoardComponent } from './note-board/note-board.component';
+import { NoteOptionsComponent } from './note-options/note-options.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
     AppComponent,
     HomeComponent,
     NoteMetadataComponent,
-    NoteBoardComponent
+    NoteBoardComponent,
+    NoteOptionsComponent
   ],
   imports: [
     BrowserModule,
