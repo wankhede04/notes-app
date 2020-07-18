@@ -11,11 +11,14 @@ import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { ngxsConfig } from './store/ngxs.config';
 import { environment } from '../environments/environment';
 import { HomeComponent } from './home/home.component';
+import { NoteMetadataComponent } from './note-metadata/note-metadata.component';
 
 const routes: Routes = [
   {
     path: 'notes',
-    children: [],
+    children: [
+      { path: '', component: NoteMetadataComponent }
+    ],
     component: HomeComponent
   },
   { path: '', component: AppComponent },
@@ -24,7 +27,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NoteMetadataComponent
   ],
   imports: [
     BrowserModule,
