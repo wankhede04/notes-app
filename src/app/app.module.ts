@@ -10,14 +10,21 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { ngxsConfig } from './store/ngxs.config';
 import { environment } from '../environments/environment';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  {
+    path: 'notes',
+    children: [],
+    component: HomeComponent
+  },
   { path: '', component: AppComponent },
 ];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
