@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, Select } from '@ngxs/store';
+import { Notes } from '../store/notes/notes.actions';
+import { INotesDetails } from '../store/notes/notes.model';
+import { NoteDetailsState } from '../store/notes/notes.state';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { v4 as uuidv4 } from 'uuid';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +14,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  @Select(NoteDetailsState.getNotes)
+  public notes$: Observable<INotesDetails[]>;
+
+  public selectedNoteID: string;
+  public selectedNote: INotesDetails[];
+
+  constructor(private store: Store) { }
 
   ngOnInit() {
   }
 
+  public createNote() {
+    const note: INotesDetails = {
+      noteID: uuidv4(),
+      noteDescription: '',
+      updatedAt: new Date()
+    }
+    this.store.dispatch(new Notes.Create(note));
+    this.selectedNoteID = note.noteID;
+  }
+
+  public deleteNote() {
+    this.store.dispatch(new Notes.Delete(this.selectedNoteID))
+  }
+
+  public getSelectedNote(noteID: string) {
+    this.selectedNoteID = noteID;
+  }
+
+  public getNoteDescription(description: string) {
+    let noteDetails: INotesDetails = {
+      noteID: this.selectedNoteID,
+      noteDescription: description,
+      updatedAt: new Date()
+    }
+    this.store.dispatch(new Notes.Update(this.selectedNoteID, noteDetails));
+  }
 }
