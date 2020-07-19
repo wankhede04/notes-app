@@ -37,7 +37,7 @@ const routes: Routes = [
       [],
       ngxsConfig),
     NgxsStoragePluginModule.forRoot({
-      storage: StorageOption.SessionStorage,
+      storage: StorageOption.LocalStorage,
       key: []
     }),
     NgxsRouterPluginModule.forRoot(),
