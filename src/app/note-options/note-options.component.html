@@ -1,14 +1,16 @@
-<div class="options-bar">
-  <button>
-    <img src="https://img.icons8.com/26/000000/delete-forever.png"/>
-  </button>
-  <button>
-    <img src="https://img.icons8.com/22/000000/edit-file.png"/>
-  </button>
-  <button>
-    <img src="https://img.icons8.com/26/000000/lock-2.png"/>
-  </button>
-  <div class="search">
+<div class="row options-bar">
+  <div class="col-md-4">
+    <button>
+      <img src="https://img.icons8.com/ios-glyphs/26/000000/delete-forever.png"/>
+    </button>
+    <button>
+      <img src="https://img.icons8.com/ios-glyphs/22/000000/edit-file.png"/>
+    </button>
+    <button>
+      <img src="https://img.icons8.com/ios-glyphs/26/000000/lock-2.png"/>
+    </button>
+  </div>
+  <div class="search col-md-6">
     <input type="text" placeholder="Search" (input)="inputString($event.target.value)">
   </div>
 </div>
