@@ -1,4 +1,4 @@
-import { State, StateContext, Selector, Action } from '@ngxs/store';
+import { State, StateContext, Selector, Action, createSelector } from '@ngxs/store';
 import { INotesDetails, NotesDetailsStateModel } from './notes.model';
 import { Notes } from './notes.actions';
 
@@ -12,6 +12,12 @@ const INITIAL_STATE_DETAILS: NotesDetailsStateModel = {
 })
 export class NoteDetailsState {
   constructor() {}
+
+  public static filter(search: string) {
+    return createSelector([NoteDetailsState], (state: NotesDetailsStateModel) => {
+      return state.Notes.filter(note => note.noteDescription.includes(search))
+    });
+  }
 
   @Selector()
   public static getNotes(state: NotesDetailsStateModel) {
