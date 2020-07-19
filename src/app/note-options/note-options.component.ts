@@ -13,6 +13,9 @@ export class NoteOptionsComponent implements OnInit {
   @Output()
   public deleteNoteEvent: EventEmitter<boolean> = new EventEmitter();
 
+  @Output()
+  public searchNoteEvent: EventEmitter<string> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {
@@ -27,6 +30,6 @@ export class NoteOptionsComponent implements OnInit {
   }
 
   public inputString(search: string) {
-    console.log(search)
+    this.searchNoteEvent.emit(search);
   }
 }
