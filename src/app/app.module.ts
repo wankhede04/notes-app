@@ -17,11 +17,7 @@ import { NoteOptionsComponent } from './note-options/note-options.component';
 
 const routes: Routes = [
   {
-    path: 'notes',
-    children: [
-      { path: '', component: NoteMetadataComponent },
-    ],
-    component: HomeComponent
+    path: 'notes', component: HomeComponent
   },
   { path: '', component: AppComponent },
 ];
