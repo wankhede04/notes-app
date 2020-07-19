@@ -3,12 +3,21 @@
     <app-note-options
       (createNoteEvent)="createNote()"
       (deleteNoteEvent)="deleteNote()"
+      (searchNoteEvent)="searchNotes($event)"
     ></app-note-options>
   </div>
   <div class="row">
     <div class="col-md-4 note-rows">
       <div *ngFor="let note of notes$ | async">
         <app-note-metadata
+          *ngIf="!searchedKeyword"
+          [notes]="note"
+          (selectedNoteEvent)="getSelectedNote($event)"
+        ></app-note-metadata>
+      </div>
+      <div *ngFor="let note of searchNotes$ | async">
+        <app-note-metadata
+          *ngIf="searchedKeyword"
           [notes]="note"
           (selectedNoteEvent)="getSelectedNote($event)"
         ></app-note-metadata>

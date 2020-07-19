@@ -17,8 +17,11 @@ export class HomeComponent implements OnInit {
   @Select(NoteDetailsState.getNotes)
   public notes$: Observable<INotesDetails[]>;
 
+  public searchNotes$: Observable<INotesDetails[]>;
+
   public selectedNoteID: string;
   public selectedNote: INotesDetails[];
+  public searchedKeyword: string;
 
   constructor(private store: Store) { }
 
@@ -50,5 +53,10 @@ export class HomeComponent implements OnInit {
       updatedAt: new Date()
     }
     this.store.dispatch(new Notes.Update(this.selectedNoteID, noteDetails));
+  }
+
+  public searchNotes(search: string) {
+    this.searchedKeyword = search;
+    this.searchNotes$ = this.store.select(NoteDetailsState.filter(search));
   }
 }
