@@ -6,10 +6,14 @@
       (searchNoteEvent)="searchNotes($event)"
     ></app-note-options>
   </div>
-  <div class="row">
-    <div class="col-md-4 note-rows">
+  <div class="row dropdown">
+    <button (click)="toggleDropdown()" class="toggle-button">
+      <img src="https://img.icons8.com/ios-glyphs/24/000000/menu.png"/>
+    </button>
+    <div class="col-md-4 note-rows dropdown-content" *ngIf="show">
       <div *ngFor="let note of notes$ | async">
         <app-note-metadata
+          (click)="toggleDropdown()"
           *ngIf="!searchedKeyword"
           [notes]="note"
           (selectedNoteEvent)="getSelectedNote($event)"
@@ -17,6 +21,7 @@
       </div>
       <div *ngFor="let note of searchNotes$ | async">
         <app-note-metadata
+          (click)="toggleDropdown()"
           *ngIf="searchedKeyword"
           [notes]="note"
           (selectedNoteEvent)="getSelectedNote($event)"

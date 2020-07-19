@@ -22,6 +22,7 @@ export class HomeComponent implements OnInit {
   public selectedNoteID: string;
   public selectedNote: INotesDetails[];
   public searchedKeyword: string;
+  public show: boolean = true;
 
   constructor(private store: Store) { }
 
@@ -58,5 +59,11 @@ export class HomeComponent implements OnInit {
   public searchNotes(search: string) {
     this.searchedKeyword = search;
     this.searchNotes$ = this.store.select(NoteDetailsState.filter(search));
+  }
+
+  public toggleDropdown() {
+    if (screen.width <= 767) {
+      this.show = !this.show;
+    }
   }
 }
