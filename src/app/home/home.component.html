@@ -1,3 +1,26 @@
 <div class="container">
-  <router-outlet></router-outlet>
+  <div class="menus">
+    <app-note-options
+      (createNoteEvent)="createNote()"
+      (deleteNoteEvent)="deleteNote()"
+    ></app-note-options>
+  </div>
+  <div class="row">
+    <div class="col-md-4 note-rows">
+      <div *ngFor="let note of notes$ | async">
+        <app-note-metadata
+          [notes]="note"
+          (selectedNoteEvent)="getSelectedNote($event)"
+        ></app-note-metadata>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <app-note-board
+        (noteDetailsEvent)="getNoteDescription($event)"
+        [allNotes]="notes$ | async"
+        [currentNoteID]="selectedNoteID"
+      ></app-note-board>
+    </div>
+  </div>
 </div>
+<router-outlet></router-outlet>
