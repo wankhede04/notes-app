@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { NoteMetadataComponent } from './note-metadata/note-metadata.component';
 import { NoteBoardComponent } from './note-board/note-board.component';
 import { NoteOptionsComponent } from './note-options/note-options.component';
+import { NoteDetailsState } from './store/notes/notes.state';
 
 const routes: Routes = [
   {
@@ -34,7 +35,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes, { initialNavigation: 'enabled' }),
     NgxsModule.forRoot(
-      [],
+      [NoteDetailsState],
       ngxsConfig),
     NgxsStoragePluginModule.forRoot({
       storage: StorageOption.LocalStorage,
