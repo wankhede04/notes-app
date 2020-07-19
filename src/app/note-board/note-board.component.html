@@ -3,6 +3,13 @@
     {{ currentDateTime | date: 'long'}}
   </span>
   <div class="text-content">
-    <textarea name="note-body" cols="35" rows="12"></textarea>
+    <textarea
+      name="note-body"
+      cols="35"
+      rows="12"
+      (input)="noteValue()"
+      [(ngModel)]="textareaValue"
+      #textarea = "ngModel"
+    ></textarea>
   </div>
 </div>
